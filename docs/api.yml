@@ -298,6 +298,13 @@ paths:
           schema:
             type: string
             format: time
+        - in: query
+          name: endTime
+          description: End time of the day (format: 'HH:mm:ss')
+          required: false
+          schema:
+            type: string
+            format: time
 components:
   schemas:
     Book:
