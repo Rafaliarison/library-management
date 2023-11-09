@@ -47,6 +47,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+                  
+  /books/borrowed:
+    get:
+      summary: Get all borrowed books
+      operationId: getBorrowedBooks
+      responses:
+        200:
+          description: The list of borrowed books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+  
   /borrow:
     post:
       summary: Borrow a book
