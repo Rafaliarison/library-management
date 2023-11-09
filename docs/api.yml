@@ -284,6 +284,20 @@ paths:
           schema:
             type: string
             format: date
+        - in: query
+          name: endDate
+          description: End date of the time range (format: 'YYYY-MM-DD')
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: startTime
+          description: Start time of the day (format: 'HH:mm:ss')
+          required: false
+          schema:
+            type: string
+            format: time
 components:
   schemas:
     Book:
