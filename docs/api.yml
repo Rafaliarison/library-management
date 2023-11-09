@@ -111,29 +111,29 @@ paths:
       responses:
         204:
           description: Author deleted successfully
-    /visitors:
-      get:
-        summary: Get all visitor
-        operationId: getvisitor
-        parameters:
-          - in: query
-            name: ID
-            description: The returned of the visitors ID
-            schema:
-              type: integer
-          - in: query
-            name: name
-            description: The return of the visitors name
-            schema:
-              type: string
-          - in: query
-            name: reference
-            description: The return of the visitors reference
-            schema:
-              type: string
-        responses:
-          200:
-            description: The list fo all visitor.
+  /visitors:
+    get:
+      summary: Get all visitor
+      operationId: getvisitor
+      parameters:
+        - in: query
+          name: ID
+          description: The returned of the visitors ID
+          schema:
+            type: integer
+        - in: query
+          name: name
+          description: The return of the visitors name
+          schema:
+            type: string
+        - in: query
+          name: reference
+          description: The return of the visitors reference
+          schema:
+            type: string
+      responses:
+        200:
+          description: The list fo all visitor.
 components:
   schemas:
     Book:
