@@ -266,6 +266,14 @@ components:
         releaseDate:
           type: string
           format: date
+         emprunteur:
+          type: object
+          properties:
+            visitorId:
+              type: string
+            borrowDate:
+              type: string
+              format: date
     Author:
       type: object
       properties:
