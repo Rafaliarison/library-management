@@ -362,9 +362,6 @@ paths:
       security:
         - oauth2:
             - read
-      responses:
-        '200':
-          description: successfully
     
 components:
   schemas:
