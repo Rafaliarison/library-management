@@ -277,6 +277,13 @@ paths:
           required: true
           schema:
             type: string
+        - in: query
+          name: startDate
+          description: Start date of the time range (format: 'YYYY-MM-DD')
+          required: true
+          schema:
+            type: string
+            format: date
 components:
   schemas:
     Book:
