@@ -18,6 +18,7 @@ paths:
       summary: Get all books
       description: The returned books are ordered by updated datetime.
       operationId: getBooks
+      security: []  
       parameters:
         - in: query
           name: bookName
@@ -55,6 +56,9 @@ paths:
         - Borrowing
       summary: Get all borrowed books
       operationId: getBorrowedBooks
+      security:
+        - oauth2: ['write']
+      
       responses:
         200:
           description: The list of borrowed books
@@ -71,6 +75,8 @@ paths:
         - Borrowing
       summary: Get all available books
       operationId: getAvailableBooks
+      security:
+        - oauth2: ['write']
       responses:
         200:
           description: The list of available books
@@ -133,6 +139,8 @@ paths:
         - Borrowing
       summary: return a borrowed book
       operationId: retrunBook
+      security:
+        - oauth2: ['write'] 
       requestBody:
         content:
           application/json:
@@ -159,6 +167,8 @@ paths:
       summary: Get all authors
       description: Get a list of all authors. You can filter by name.
       operationId: getAuthors
+      security:
+        - oauth2: ['write'] 
       parameters:
         - in: query
           name: name
@@ -180,6 +190,8 @@ paths:
         - Authors
       summary: Create or update an author
       operationId: crupdateAuthor
+      security:
+        - oauth2: ['write'] 
       requestBody:
         content:
           application/json:
@@ -197,6 +209,8 @@ paths:
         - Authors 
       summary: Delete an author
       operationId: deleteAuthor
+      security:
+        - oauth2: ['write'] 
       parameters:
         - in: path
           name: authorId
@@ -348,6 +362,9 @@ paths:
       security:
         - oauth2:
             - read
+      responses:
+        '200':
+          description: successfully
     
 components:
   schemas:
