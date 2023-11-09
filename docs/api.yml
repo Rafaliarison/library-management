@@ -91,6 +91,30 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+
+  /return:
+    post:
+      summary: return a borrowed book
+      operationId: retrunBook
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookId:
+                  type: string
+                  description: The ID of the book to return
+                visitorId:
+                  type: string
+                  description: The ID of the visitor who return the book
+              required:
+                - bookId
+                - visitorId
+      responses:
+        200:
+          description: The book is returned successfully
+  
   /authors:
     get:
       tags:
