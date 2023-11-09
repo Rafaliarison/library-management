@@ -305,6 +305,25 @@ paths:
           schema:
             type: string
             format: time
+        200:
+          description: List of visitor activities within the specified time range
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    activityType:
+                      type: string
+                      description: Type of activity (e.g., 'borrow' or 'return')
+                    bookId:
+                      type: string
+                      description: ID of the book involved in the activity
+                    activityDate:
+                      type: string
+                      format: date-time
+                      description: Date and time of the activity
 components:
   schemas:
     Book:
