@@ -235,6 +235,8 @@ paths:
           
   /visitors/{visitorId}/borrowed-books:
     get:
+      tags:
+        - Visitors
       summary: Get books borrowed by a visitor
       operationId: getBorrowedBooksByVisitor
       parameters:
@@ -256,6 +258,8 @@ paths:
                   
   /visitors/{visitorId}/returned-books:
     get:
+      tags:
+        - Visitors
       summary: Get books returned by a visitor
       operationId: getReturnedBooksByVisitor
       parameters:
@@ -276,6 +280,8 @@ paths:
                   $ref: '#/components/schemas/Book'
   /visitors/{visitorId}/activities:
     get:
+      tags:
+        - Visitors
       summary: Get visitor activities within a specified time range
       operationId: getVisitorActivities
       parameters:
@@ -287,32 +293,33 @@ paths:
             type: string
         - in: query
           name: startDate
-          description: Start date of the time range (format: 'YYYY-MM-DD')
+          description: Start date of the time range
           required: true
           schema:
             type: string
             format: date
         - in: query
           name: endDate
-          description: End date of the time range (format: 'YYYY-MM-DD')
+          description: End date of the time range
           required: true
           schema:
             type: string
             format: date
         - in: query
           name: startTime
-          description: Start time of the day (format: 'HH:mm:ss')
+          description: Start time of the day
           required: false
           schema:
             type: string
             format: time
         - in: query
           name: endTime
-          description: End time of the day (format: 'HH:mm:ss')
+          description: End time of the day
           required: false
           schema:
             type: string
             format: time
+      responses:
         200:
           description: List of visitor activities within the specified time range
           content:
