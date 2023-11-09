@@ -339,6 +339,16 @@ paths:
                       type: string
                       format: date-time
                       description: Date and time of the activity
+
+  /secure-endpoint:
+    get:
+      summary: Accessible only to authenticated users
+      description: This endpoint requires authentication.
+      operationId: secureEndpoint
+      security:
+        - oauth2:
+            - read
+    
 components:
   schemas:
     Book:
@@ -390,3 +400,13 @@ components:
           type: string
         reference: 
           type: string
+securitySchemes:
+  oauth2:
+    type: oauth2
+    flows:
+      authorizationCode:
+        authorizationUrl: https://authorization-server.com/auth
+        tokenUrl: https://authorization-server.com/token
+        scopes:
+          read: Grants read access
+          write: Grants write access
