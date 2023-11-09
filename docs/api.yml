@@ -348,6 +348,17 @@ paths:
       security:
         - oauth2:
             - read
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Authenticated access successful"
     
 components:
   schemas:
