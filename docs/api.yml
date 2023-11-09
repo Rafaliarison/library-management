@@ -266,6 +266,17 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+  /visitors/{visitorId}/activities:
+    get:
+      summary: Get visitor activities within a specified time range
+      operationId: getVisitorActivities
+      parameters:
+        - in: path
+          name: visitorId
+          description: The ID of the visitor
+          required: true
+          schema:
+            type: string
 components:
   schemas:
     Book:
