@@ -316,7 +316,7 @@ paths:
                   properties:
                     activityType:
                       type: string
-                      description: Type of activity (e.g., 'borrow' or 'return')
+                      description: Type of activity ('borrow' or 'return')
                     bookId:
                       type: string
                       description: ID of the book involved in the activity
