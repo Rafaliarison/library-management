@@ -32,7 +32,6 @@ paths:
           schema:
             type: string
             format: date
-        # TODO3: add parameter to filter books by intervals of dates of the releaseDate
       responses:
         200:
           description: The list of filtered books
@@ -62,7 +61,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/Book'
   /authors:
-    # TODO2: complete GET (can be filtered by name) - PUT - DELETE
     get:
       summary: Get all authors
       description: Get a list of all authors. You can filter by name.
@@ -111,6 +109,29 @@ paths:
       responses:
         204:
           description: Author deleted successfully
+  /visitors:
+    get:
+      summary: Get all visitor
+      operationId: getvisitor
+      parameters:
+        - in: query
+          name: ID
+          description: The returned of the visitors ID
+          schema:
+            type: integer
+        - in: query
+          name: name
+          description: The return of the visitors name
+          schema:
+            type: string
+        - in: query
+          name: reference
+          description: The return of the visitors reference
+          schema:
+            type: string
+      responses:
+        200:
+          description: The list fo all visitor.
 components:
   schemas:
     Book:
