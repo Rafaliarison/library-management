@@ -288,7 +288,7 @@ components:
         releaseDate:
           type: string
           format: date
-         emprunteur:
+        emprunteur:
           type: object
           properties:
             visitorId:
