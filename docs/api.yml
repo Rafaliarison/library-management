@@ -232,6 +232,106 @@ paths:
       responses:
         200:
           description: The list fo all visitor.
+          
+  /visitors/{visitorId}/borrowed-books:
+    get:
+      summary: Get books borrowed by a visitor
+      operationId: getBorrowedBooksByVisitor
+      parameters:
+        - in: path
+          name: visitorId
+          description: The ID of the visitor
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: The list of books borrowed by the visitor
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+                  
+  /visitors/{visitorId}/returned-books:
+    get:
+      summary: Get books returned by a visitor
+      operationId: getReturnedBooksByVisitor
+      parameters:
+        - in: path
+          name: visitorId
+          description: The ID of the visitor
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: The list of books returned by the visitor
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+  /visitors/{visitorId}/activities:
+    get:
+      summary: Get visitor activities within a specified time range
+      operationId: getVisitorActivities
+      parameters:
+        - in: path
+          name: visitorId
+          description: The ID of the visitor
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: startDate
+          description: Start date of the time range (format: 'YYYY-MM-DD')
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: endDate
+          description: End date of the time range (format: 'YYYY-MM-DD')
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: startTime
+          description: Start time of the day (format: 'HH:mm:ss')
+          required: false
+          schema:
+            type: string
+            format: time
+        - in: query
+          name: endTime
+          description: End time of the day (format: 'HH:mm:ss')
+          required: false
+          schema:
+            type: string
+            format: time
+        200:
+          description: List of visitor activities within the specified time range
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    activityType:
+                      type: string
+                      description: Type of activity ('borrow' or 'return')
+                    bookId:
+                      type: string
+                      description: ID of the book involved in the activity
+                    activityDate:
+                      type: string
+                      format: date-time
+                      description: Date and time of the activity
 components:
   schemas:
     Book:
@@ -254,6 +354,14 @@ components:
         releaseDate:
           type: string
           format: date
+        emprunteur:
+          type: object
+          properties:
+            visitorId:
+              type: string
+            borrowDate:
+              type: string
+              format: date
     Author:
       type: object
       properties:
