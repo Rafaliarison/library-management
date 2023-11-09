@@ -127,7 +127,7 @@ paths:
     get:
       tags:
         - Visitors
-      summary: Get all visitor
+      summary: Get all visitors
       operationId: getvisitor
       parameters:
         - in: query
