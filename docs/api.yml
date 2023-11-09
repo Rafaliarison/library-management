@@ -383,3 +383,13 @@ components:
           type: string
         reference: 
           type: string
+securitySchemes:
+  oauth2:
+    type: oauth2
+    flows:
+      authorizationCode:
+        authorizationUrl: https://authorization-server.com/auth
+        tokenUrl: https://authorization-server.com/token
+        scopes:
+          read: Grants read access
+          write: Grants write access
