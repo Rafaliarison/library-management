@@ -332,6 +332,16 @@ paths:
                       type: string
                       format: date-time
                       description: Date and time of the activity
+
+  /secure-endpoint:
+    get:
+      summary: Accessible only to authenticated users
+      description: This endpoint requires authentication.
+      operationId: secureEndpoint
+      security:
+        - oauth2:
+            - read
+    
 components:
   schemas:
     Book:
